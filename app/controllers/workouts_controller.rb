@@ -11,6 +11,11 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def show
+    workout = Workout.find_by(id:params[:id], user_id: current_user.id)
+    render json: workout, include: ['lifts']
+  end
+
   def create
     lifts = Lift.where(user_id: current_user.id, workout_status: "in progress")
 
