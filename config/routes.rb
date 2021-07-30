@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
 
   get "/exercises" => "exercises#index"
+
+  post "/lifts" => "lifts#create"
 end
