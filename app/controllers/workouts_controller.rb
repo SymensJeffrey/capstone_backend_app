@@ -14,7 +14,7 @@ class WorkoutsController < ApplicationController
     render json: workout
 
     lifts.each do |lift|
-      lift.update(status: "completed", workout_id: workout.id)
+      lift.update(workout_status: "completed", workout_id: workout.id)
     end
   end
 end
