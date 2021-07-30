@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "/exercises" => "exercises#index"
 
   post "/lifts" => "lifts#create"
+
+  post"/workouts" => "workouts#create"
 end
