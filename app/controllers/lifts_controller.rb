@@ -5,9 +5,9 @@ class LiftsController < ApplicationController
       exercise_id:params[:exercise_id],
       reps:params[:reps],
       sets:params[:sets],
-      weight:params[:weigth],
+      weight:params[:weight],
       workout_status:"in progress",
-      user_id:params[:user_id]
+      user_id:current_user.id
     )
     if lift.save
       render json: { message: "Lift added to workout" }, status: :created
