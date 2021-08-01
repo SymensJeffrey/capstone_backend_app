@@ -1,5 +1,13 @@
 class LiftsController < ApplicationController
 
+  def index
+    if current_user
+      lift = Lift.where(user_id: current_user.id)
+      render json: lift
+    else
+      render json: [], status: :unauthorized
+    end
+  end
   def create
     lift = Lift.new(
       exercise_id:params[:exercise_id],

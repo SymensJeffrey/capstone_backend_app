@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/exercises" => "exercises#index"
 
+  get "/lifts" => "lifts#index"
   post "/lifts" => "lifts#create"
 
   get "/workouts" => "workouts#index"
