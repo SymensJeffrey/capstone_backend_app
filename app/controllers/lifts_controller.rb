@@ -2,7 +2,7 @@ class LiftsController < ApplicationController
 
   def index
     if current_user
-      lift = Lift.where(user_id: current_user.id)
+      lift = Lift.where(user_id: current_user.id, workout_status: "in progress")
       render json: lift
     else
       render json: [], status: :unauthorized
