@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/users" => "users#index"
   post "/users" => "users#create"
+  get "/users/:id" => "users#show"
 
   post "/sessions" => "sessions#create"
 
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   get "/workouts" => "workouts#index"
   get "/workouts/:id" => "workouts#show"
   post"/workouts" => "workouts#create"
+
 end
