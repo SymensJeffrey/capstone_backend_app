@@ -5,7 +5,7 @@ class WorkoutsController < ApplicationController
   def index
     if current_user
       workout = Workout.where(user_id: current_user.id)
-      render json: workout
+      render json: workout, include: ['lifts', 'exercises']
     else
       render json: [], status: :unauthorized
     end
