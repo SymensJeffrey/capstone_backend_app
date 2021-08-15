@@ -13,7 +13,7 @@ class WorkoutsController < ApplicationController
 
   def show
     workout = Workout.find_by(id:params[:id], user_id: current_user.id)
-    render json: workout, include: ['lifts']
+    render json: workout, include: ['lifts', 'exercises']
   end
 
   def create
