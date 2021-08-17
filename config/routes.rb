@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "/lifts" => "lifts#index"
   post "/lifts" => "lifts#create"
+  delete "/lifts/:id" => "lifts#destroy"
 
   get "/workouts" => "workouts#index"
   get "/workouts/:id" => "workouts#show"

@@ -24,4 +24,10 @@ class LiftsController < ApplicationController
     end
   end
 
+  def destroy
+    lift = Lift.find_by(id: params[:id])
+    lift.destroy
+    render json: {message: "Lift was deleted"}
+  end
+
 end
