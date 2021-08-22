@@ -4,8 +4,12 @@ class WorkoutsController < ApplicationController
 
   def index
     if current_user
-      workout = Workout.where(user_id: current_user.id)
-      render json: workout.sort.reverse, include: ['lifts', 'exercises']
+      workout = Workout.where(user_id: current_user.id).includes(:lifts, :exercises)
+      total = Workout.group("DATE_TRUNC('month', created_at)").count
+      render json: {
+        workout: workout.sort.reverse.as_json(include: [:lifts, :exercises]),
+        total: Workout.group("DATE_TRUNC('month', created_at)").where(user_id: current_user.id).count
+      }
     else
       render json: [], status: :unauthorized
     end
